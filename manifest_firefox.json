@@ -1,0 +1,18 @@
+{
+    "manifest_version": 2,
+    "name": "__MSG_extensionName__",
+    "description": "__MSG_extensionDescription__",
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "@ytbellnotif"
+        }
+    },
+    "content_scripts": [
+        {
+            "matches": [ "*://*.youtube.com/*" ],
+            "js": [ "content-script.js" ],
+            "run_at": "document_idle"
+        }
+    ],
+    "web_accessible_resources": [ "player.js" ]
+}

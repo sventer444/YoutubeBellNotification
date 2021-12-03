@@ -14,5 +14,8 @@
             "run_at": "document_idle"
         }
     ],
+    "permissions": [
+        "tabs"
+    ],
     "web_accessible_resources": [ "player.js" ]
 }

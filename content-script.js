@@ -21,6 +21,8 @@ if (theBell != null){
 }
 
 function ringTheBell(){
+    let url = chrome.runtime.getUrl('Taco-Bell-Bong-SFX.mp3')
+    console.log('audio at'+url)
     window.postMessage({
         "source": "YOUTUBE_BELL_NOTIF",
         "action": "RING_THE_BELL"

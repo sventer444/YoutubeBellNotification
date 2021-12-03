@@ -2,7 +2,8 @@
 
 function ringTheBell() {
     console.log("BING BONG")
-    var bellSound = new Audio("./music/Taco-Bell-Bong-SFX.mp3")
+    var bellSound = new Audio("audio/Taco-Bell-Bong-SFX.mp3")
+    bellSound.load()
     bellSound.play()
 }
 

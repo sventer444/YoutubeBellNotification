@@ -21,7 +21,7 @@ function buildFirefox() {
             key: "version",
             value: version
         }))
-        .pipe(src(["content-script.js", "player.js", "music/Taco-Bell-Bong-SFX.mp3"]));
+        .pipe(src(["content-script.js", "player.js", "audio/Taco-Bell-Bong-SFX.mp3"]));
 
     const directorys = src("./");
 
@@ -42,7 +42,7 @@ function buildChrome() {
             key: "version",
             value: version
         }))
-        .pipe(src(["content-script.js", "player.js", "music/Taco-Bell-Bong-SFX.mp3"]));
+        .pipe(src(["content-script.js", "player.js", "audio/Taco-Bell-Bong-SFX.mp3"]));
 
     const directorys = src("./");
 

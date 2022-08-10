@@ -2,7 +2,7 @@
     "name": "youtube-bell-notif",
     "description": "YoutubeBellNotif",
     "homepage": "",
-    "version": "1.0.0",
+    "version": "0.1.0",
     "scripts": {
         "build": "gulp",
         "build:chrome": "gulp chrome",

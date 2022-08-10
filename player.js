@@ -1,22 +1,24 @@
 
 
-BellListener = {
+let bellListener = {
     getPlayer() {
         const player = new Audio();
         player.autoplay = false;
         player.preload = true;
+        //player.src = loadFile();
         return player;
     },
     init() {
+        console.log('init successful')
         this.player = this.getPlayer();
         this.loadSound();
-        this.setPlayerVolume();
+        //this.setPlayerVolume();
     },
     async setPlayerVolume(player = this.player) {
         player.volume = 1.0
     },
     async loadFile() {
-        return await chrome.runtime.getURL('Taco-Bell-Bong-SFX.mp3')//http://lezotre.free.fr/Mp3/disco.mp3
+        return await chrome.runtime.getURL("https://soundbuttons.net/embed/taco-bell-bong")//http://lezotre.free.fr/Mp3/disco.mp3
     },
     async loadSound() {
         if(this.player.src) {
@@ -33,21 +35,19 @@ BellListener = {
         
         this.player.src = url;
     },
-    async promisedPlay(player) {
-        await player.play()
-        .catch(console.error);
-    },
     makeSound() {
-        return this.promisedPlay(this.player);
+        console.log("BING BONG")
+        //player.play()
     }
 }
 
-function ringTheBell(listener){
-    console.log("BING BONG")
-    listener.makeSound().catch(console.error)
-}
+bellListener.init()
 
-BellListener.init()
+
+function ringTheBell(listener){
+    
+    listener.makeSound()
+}
 
 window.addEventListener("message", function(event) {
     if (event.source != window || !event.data.source && event.data.source != "YOUTUBE_BELL_NOTIF") {
@@ -55,7 +55,7 @@ window.addEventListener("message", function(event) {
     }
 
     if (event.data.action && event.data.action == "RING_THE_BELL") {
-        console.log('hit message')
-        ringTheBell(BellListener)
+        console.log('hit ring the bell action')
+        ringTheBell(bellListener)
     }
 }, false);
